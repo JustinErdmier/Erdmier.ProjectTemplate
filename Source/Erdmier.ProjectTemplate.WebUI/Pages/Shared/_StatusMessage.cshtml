@@ -1,0 +1,7 @@
+﻿@model string
+
+@if (! string.IsNullOrWhiteSpace(Model))
+{
+    string statusMessageClass = Model.StartsWith("🤔") ? "text-red-300" : "text-green-300";
+    <p class="@statusMessageClass">@Model</p>
+}

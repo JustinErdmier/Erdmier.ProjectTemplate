@@ -1,0 +1,32 @@
+﻿@* ReSharper disable Html.PathError *@
+<AuthorizeView>
+    <Authorized>
+        <ul class="emTabletSm:gap-8 emTabletSm:justify-end emTabletSm:w-max flex items-center justify-between w-60">
+            <li class="shrink-0">
+                <a href="Account/Manage/Profile"
+                   title="Profile">
+                    Hello, @context.User.Identity?.Name!
+                </a>
+            </li>
+            <li class="shrink-0">
+                <form action="Account/LogOut"
+                      method="post">
+                    <button class="nav-btn-one"
+                            type="submit">
+                        Log Out
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </Authorized>
+    <NotAuthorized>
+        <ul class="emTabletSm:gap-8 emTabletSm:justify-end emTabletSm:w-max flex items-center justify-between w-60">
+            <li class="shrink-0">
+                <a href="Account/Register">Register</a>
+            </li>
+            <li class="shrink-0">
+                <a href="Account/LogIn">Log In</a>
+            </li>
+        </ul>
+    </NotAuthorized>
+</AuthorizeView>

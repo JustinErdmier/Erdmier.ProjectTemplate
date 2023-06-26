@@ -1,0 +1,88 @@
+﻿@page
+@model Register
+
+<div class="bg-white flex flex-col gap-4 items-center justify-between m-auto p-8 shadow-md">
+
+    <h1 class="font-bold text-4xl text-primary">
+        Register 🌟
+    </h1>
+
+    <hr class="border-primary w-full" />
+
+    <form class="flex flex-col gap-2 items-center justify-between"
+          method="post">
+        <div asp-validation-summary="ModelOnly"
+             class="text-red-300">
+        </div>
+
+        <div class="flex flex-col gap-2 items-start w-full">
+            <p class="font-bold text-primary text-xl">
+                USERNAME
+            </p>
+            <input aria-required="true"
+                   asp-for="Input.UserName"
+                   autocomplete="username"
+                   class="input-field w-full" />
+        </div>
+
+        <div class="flex flex-col gap-2 items-start w-full">
+            <p class="font-bold text-primary text-xl">
+                EMAIL
+            </p>
+            <input aria-required="true"
+                   asp-for="Input.Email"
+                   autocomplete="email"
+                   class="input-field w-full" />
+        </div>
+
+        <div class="flex flex-col gap-2 items-start w-full">
+            <p class="font-bold text-primary text-xl">
+                PASSWORD
+            </p>
+            <input aria-required="true"
+                   asp-for="Input.Password"
+                   autocomplete="new-password"
+                   class="input-field w-full" />
+        </div>
+
+        <div class="flex flex-col gap-2 items-start w-full">
+            <p class="font-bold text-primary text-xl">
+                CONFIRM PASSWORD
+            </p>
+            <input aria-required="true"
+                   asp-for="Input.ConfirmPassword"
+                   autocomplete="new-password"
+                   class="input-field w-full" />
+        </div>
+
+        <button class="btn text-xl w-full"
+                type="submit">
+            Register
+        </button>
+    </form>
+
+    <div class="flex flex-col items-center justify-between">
+        <div class="emMobileLg:flex-row emMobileLg:justify-between flex flex-col flex-wrap gap-4 w-full">
+            @if (Model.UiResponse.Succeeded)
+            {
+                <p>
+                    Didn't receive an email?
+                    <a asp-page="./ResendEmailConfirmation">
+                        Resend email confirmation
+                    </a>
+                </p>
+            }
+        </div>
+    </div>
+
+</div>
+
+@if (Model.UiResponse.HasMessage)
+{
+    <partial for="UiResponse"
+             name="_UiResponsePartial" />
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

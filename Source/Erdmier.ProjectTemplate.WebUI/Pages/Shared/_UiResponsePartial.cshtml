@@ -1,0 +1,10 @@
+﻿@model UiResponse
+
+@if (Model.HasMessage)
+{
+    string statusMessageClass = Model.Succeeded ? "text-green" : "text-red";
+    <div class="py-4 w-full"
+         role="alert">
+        <p class="w-full text-center text-xl @statusMessageClass">@Html.Raw(Model.ResponseMessage)</p>
+    </div>
+}

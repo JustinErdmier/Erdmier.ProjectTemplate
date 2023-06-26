@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0"
+          name="viewport" />
+    <title>@ViewData["Title"] - Erdmier Project Template</title>
+    <link href="~/css/app.css"
+          rel="stylesheet" />
+</head>
+<body class="bg-background">
+<div class="flex flex-col items-center justify-between min-h-screen overflow-hidden w-screen">
+    <nav class="bg-primary em4K:sp-ten emDesktop:sp-nine emLaptopLg:sp-eight emLaptopMd:sp-seven emLaptopSm:sp-six emMobileLg:sp-three emMobileMd:sp-two emTabletLg:sp-five emTabletSm:flex-row emTabletSm:sp-four flex flex-col items-center justify-between mb-20 py-6 sp-one text-white w-full">
+        <h1 class="font-bold text-2xl text-white">Erdmier Project Template</h1>
+
+        <partial name="_LogInPartial" />
+    </nav>
+
+    <main class="grow w-full">
+        <article class="em4K:sp-ten emDesktop:sp-nine emLaptopLg:sp-eight emLaptopMd:sp-seven emLaptopSm:sp-six emMobileLg:sp-three emMobileMd:sp-two emTabletLg:sp-five emTabletSm:sp-four flex flex-col items-center justify-start sp-one">
+            @RenderBody()
+        </article>
+    </main>
+
+    @* ReSharper disable Html.PathError *@
+    <div class="flex flex-col items-center justify-center pb-4 pt-10 w-full">
+        <p class="text-center">
+            &copy;2023 Erdmier.ProjectTemplate - All Rights Reserved.
+        </p>
+        <div class="flex gap-4 items-center justify-center">
+            <a class="text-mutedGray"
+               href="PrivacyPolicy">
+                Privacy Policy
+            </a>
+            <span class="text-mutedGray">|</span>
+            <a class="text-mutedGray"
+               href="TermsOfService">
+                Terms of Service
+            </a>
+        </div>
+    </div>
+
+</div>
+
+@await RenderSectionAsync("Scripts", false)
+
+</body>
+</html>

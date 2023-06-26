@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_RazorPagesLayout";
+}
+
+<div class="bg-white flex flex-col gap-4 items-center justify-between m-auto p-8 shadow-md">
+
+    <h1 class="font-bold text-4xl text-primary">
+        Manage Your Account
+    </h1>
+
+    <hr class="border-primary w-full" />
+
+    <div class="flex gap-4 w-full">
+        <partial name="_AccountManageNav" />
+
+        <div class="w-full">
+            @RenderBody()
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+}

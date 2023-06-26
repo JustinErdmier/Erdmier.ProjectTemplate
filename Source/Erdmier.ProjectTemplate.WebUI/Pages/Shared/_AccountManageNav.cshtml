@@ -1,0 +1,38 @@
+﻿@using Erdmier.ProjectTemplate.WebUI.Common.Utilities
+<ul class="flex flex-col gap-2">
+    <li class="shrink-0">
+        <a asp-page="./Profile"
+           class="nav-btn-three @AccountManagePagesNavUtil.ProfileNavClass(ViewContext)"
+           id="profile">
+            Profile
+        </a>
+    </li>
+    <li class="shrink-0">
+        <a asp-page="./Email"
+           class="nav-btn-three @AccountManagePagesNavUtil.EmailNavClass(ViewContext)"
+           id="email">
+            Email
+        </a>
+    </li>
+    <li class="shrink-0">
+        <a asp-page="./ChangePassword"
+           class="nav-btn-three @AccountManagePagesNavUtil.ChangePasswordNavClass(ViewContext)"
+           id="change-password">
+            Password
+        </a>
+    </li>
+    <li class="shrink-0">
+        <a asp-page="./TwoFactorAuthentication"
+           class="nav-btn-three @AccountManagePagesNavUtil.TwoFactorAuthenticationNavClass(ViewContext)"
+           id="two-factor">
+            Two-Factor Authentication
+        </a>
+    </li>
+    <li class="shrink-0">
+        <a asp-page="./PersonalData"
+           class="nav-btn-three @AccountManagePagesNavUtil.PersonalDataNavClass(ViewContext)"
+           id="personal-data">
+            Personal Data
+        </a>
+    </li>
+</ul>

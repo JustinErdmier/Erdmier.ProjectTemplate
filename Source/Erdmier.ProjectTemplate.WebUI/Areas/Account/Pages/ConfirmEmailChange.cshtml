@@ -1,0 +1,38 @@
+﻿@page
+@model ConfirmEmailChange
+
+<div class="bg-white flex flex-col gap-4 items-center justify-between m-auto p-8 shadow-md">
+
+    <h1 class="font-bold text-4xl text-primary">
+        @if (Model.UiResponse.Succeeded)
+        {
+            <text>Confirmed 🎉</text>
+        }
+        else
+        {
+            <text>Uh oh 🤔</text>
+        }
+    </h1>
+
+    <hr class="border-primary w-full" />
+
+    <div class="flex flex-col items-center justify-between">
+        <div class="emMobileLg:flex-row emMobileLg:justify-between flex flex-col flex-wrap gap-4 w-full">
+            @if (Model.UiResponse.HasMessage)
+            {
+                <partial for="UiResponse"
+                         name="_UiResponsePartial" />
+            }
+
+            @if (Model.UiResponse.Failed)
+            {
+                <p>
+                    <a asp-page="./ResendEmailConfirmation">
+                        Resend email confirmation
+                    </a>
+                </p>
+            }
+        </div>
+    </div>
+
+</div>

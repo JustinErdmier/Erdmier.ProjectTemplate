@@ -1,0 +1,44 @@
+﻿@page
+@model ResendEmailConfirmation
+
+<div class="bg-white flex flex-col gap-4 items-center justify-between m-auto p-8 shadow-md">
+
+    <h1 class="font-bold text-4xl text-primary">
+        Confirm Your Email 📨
+    </h1>
+
+    <hr class="border-primary w-full" />
+
+    <form class="flex flex-col gap-2 items-center justify-between"
+          method="post">
+        <div asp-validation-summary="ModelOnly"
+             class="text-red-300">
+        </div>
+
+        <div class="flex flex-col gap-2 items-start w-full">
+            <p class="font-bold text-primary text-xl">
+                EMAIL
+            </p>
+            <input aria-required="true"
+                   asp-for="Input.Email"
+                   autocomplete="email"
+                   class="input-field w-full" />
+        </div>
+
+        <button class="btn text-xl w-full"
+                type="submit">
+            Send
+        </button>
+    </form>
+
+</div>
+
+@if (Model.UiResponse.HasMessage)
+{
+    <partial for="UiResponse"
+             name="_UiResponsePartial" />
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

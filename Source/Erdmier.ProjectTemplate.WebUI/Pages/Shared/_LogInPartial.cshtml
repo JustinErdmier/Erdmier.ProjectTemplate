@@ -1,0 +1,44 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="emTabletSm:justify-end emTabletSm:w-max flex gap-4 items-center justify-center w-60">
+        <li class="shrink-0">
+            <a asp-area="Account"
+               asp-page="/Manage/ProfileOverview"
+               class="nav-btn-one">
+                Manage Account
+            </a>
+        </li>
+        <li class="shrink-0">
+            <form asp-area="Account"
+                  asp-page="/LogOut"
+                  asp-route-returnUrl="/"
+                  method="post">
+                <button class="nav-btn-two"
+                        type="submit">
+                    Log Out
+                </button>
+            </form>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="emTabletSm:gap-8 emTabletSm:justify-end emTabletSm:w-max flex items-center justify-between w-60">
+        <li class="shrink-0">
+            <a asp-area="Account"
+               asp-page="/Register"
+               class="nav-btn-two">
+                Register
+            </a>
+        </li>
+        <li class="shrink-0">
+            <a asp-area="Account"
+               asp-page="/LogIn"
+               class="nav-btn-two">
+                Log In
+            </a>
+        </li>
+    </ul>
+}
