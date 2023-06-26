@@ -108,8 +108,8 @@ public class Profile : PageModel
         return RedirectToPage();
     }
 
-    private async Task LoadUser(ApplicationUser user)
-        => Input = new UpdateProfileInput
+    private async Task LoadUser(ApplicationUser user) =>
+        Input = new UpdateProfileInput
         {
             UserName    = (await _userManager.GetUserNameAsync(user))!,
             PhoneNumber = await _userManager.GetPhoneNumberAsync(user)
