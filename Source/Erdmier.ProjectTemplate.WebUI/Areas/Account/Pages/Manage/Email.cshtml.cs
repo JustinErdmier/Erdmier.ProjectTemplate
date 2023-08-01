@@ -82,6 +82,16 @@ public class Email : PageModel
             return RedirectToPage();
         }
 
+        // Check if email is already in use.
+        ApplicationUser? userWithNewEmail = await _userManager.FindByEmailAsync(Input.NewEmail);
+
+        if (userWithNewEmail is not null)
+        {
+            StatusMessage = "🤔 We are unable to change your email at this time.";
+
+            return RedirectToPage();
+        }
+
         string userId = await _userManager.GetUserIdAsync(user);
         string token  = await _userManager.GenerateChangeEmailTokenAsync(user, Input.NewEmail);
         token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
