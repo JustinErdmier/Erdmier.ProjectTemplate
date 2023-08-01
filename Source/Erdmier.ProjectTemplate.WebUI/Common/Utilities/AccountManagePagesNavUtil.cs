@@ -8,7 +8,7 @@ public static class AccountManagePagesNavUtil
 
     public static string Email => "Email";
 
-    public static string ChangePassword => "ChangePassword";
+    public static string Password => "Password";
 
     public static string DownloadPersonalData => "DownloadPersonalData";
 
@@ -24,7 +24,7 @@ public static class AccountManagePagesNavUtil
 
     public static string? EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);
 
-    public static string? ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
+    public static string? PasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, Password);
 
     public static string? DownloadPersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, DownloadPersonalData);
 
